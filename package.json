@@ -24,7 +24,7 @@
     "@stormkit/serverless": "^2.3.4",
     "@types/express": "^4.17.21",
     "@types/glob": "^8.1.0",
-    "@types/jest": "^29.5.13",
+    "@types/jest": "^30.0.0",
     "@types/node": "^20.16.5",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",

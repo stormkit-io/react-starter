@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import reactLogo from "~/assets/react.svg";
 
 const handleButtonClick = () => {
-  return fetch("/api/subscribe", {
+  return fetch("/api/example", {
     method: "POST",
     body: JSON.stringify({ time: Date.now() }),
   });

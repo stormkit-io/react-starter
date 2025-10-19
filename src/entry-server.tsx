@@ -79,10 +79,8 @@ export const handler = serverless(async (req: any, res: any) => {
   // We are in assets folder
   const dir = path.dirname(fileURLToPath(import.meta.url));
   const html = fs.readFileSync(path.join(dir, "./index.html"), "utf-8");
-  const url = new URL(req.url, `http://${req.headers.host || "localhost"}`);
-  const pathname = url.pathname || "/";
 
-  const { status, content, head } = await render(pathname);
+  const { status, content, head } = await render(req.url.split("?")[0]);
 
   res.writeHead(status, "OK", { "Content-Type": "text/html; charset=utf-8" });
   res.write(

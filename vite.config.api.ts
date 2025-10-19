@@ -51,7 +51,7 @@ const files = glob
           },
           output: {
             dir: ".stormkit/api",
-            format: "cjs",
+            format: "esm",
             manualChunks: () => "",
           },
         },

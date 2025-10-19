@@ -1,6 +1,5 @@
 import { fileURLToPath } from "node:url";
 import path from "node:path";
-import fs from "node:fs";
 import * as glob from "glob";
 import dotenv from "dotenv";
 import { build } from "vite";
@@ -51,6 +50,7 @@ const files = glob
           },
           output: {
             dir: ".stormkit/api",
+            entryFileNames: "[name].mjs",
             format: "esm",
             manualChunks: () => "",
           },

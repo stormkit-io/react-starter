@@ -124,7 +124,10 @@ async function generateStaticPages() {
     // Fix the path to the static assets.
     Object.keys(manifest).forEach((fileName) => {
       if (fileName.startsWith("src/assets")) {
-        content = content.replaceAll(fileName, manifest[fileName].file);
+        content = content.replace(
+          new RegExp(fileName, "g"),
+          manifest[fileName].file
+        );
         console.log("REPLACING", fileName, "with", manifest[fileName].file);
       }
     });
@@ -139,8 +142,8 @@ async function generateStaticPages() {
 }
 
 (async () => {
-  if (process.env.SSG === "true") {
-    console.info("Detected SSG=true - generating static routes...");
+  if (process.argv.includes("--ssg")) {
+    console.info("Detected --ssg flag - generating static routes...");
     await generateStaticPages();
   } else {
     createServer();
